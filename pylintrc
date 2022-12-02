@@ -1,0 +1,9 @@
+[MASTER]
+init-hook='import sys; sys.path.append("/home/ae/git/pylint_plugin/")'
+load-plugins=pylint_plugins
+
+[MESSAGES CONTROL]
+# Disable all rules by default
+disable=W,E,C,R
+# Enable only custom rules
+enable=W8801,W8802
