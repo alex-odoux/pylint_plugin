@@ -29,6 +29,7 @@ jobs:
 
       - name: Run pylint
         run: |
+          mkdir pylint
           pipenv run pylint --output pylint/pylint.json --output-format json **/*.py
 
       - name: SonarCloud Scan
