@@ -1,0 +1,19 @@
+{ "issues": [
+    {
+      "engineId": "test",
+      "ruleId": "rule1",
+      "severity":"BLOCKER",
+      "type":"CODE_SMELL",
+      "primaryLocation": {
+        "message": "dummy-issue",
+        "filePath": "main.py",
+        "textRange": {
+          "startLine": 13,
+          "endLine": 13,
+          "startColumn": 5,
+          "endColumn": 9
+        }
+      },
+      "effortMinutes": 90
+    }
+]}
