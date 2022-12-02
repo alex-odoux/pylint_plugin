@@ -30,7 +30,7 @@ jobs:
       - name: Run pylint
         run: |
           mkdir pylint
-          pipenv run pylint --output pylint/pylint.json --output-format json **/*.py
+          pipenv run pylint -r n --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" --output pylint/pylint.json **/*.py
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
