@@ -8,10 +8,10 @@
         "message": "dummy-issue",
         "filePath": "main.py",
         "textRange": {
-          "startLine": 12,
-          "endLine": 12,
+          "startLine": 13,
+          "endLine": 13,
           "startColumn": 5,
-          "endColumn": 24
+          "endColumn": 9
         }
       },
       "effortMinutes": 90
