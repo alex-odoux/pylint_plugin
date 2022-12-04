@@ -1,8 +1,8 @@
 from antigravity import geohash as g
-import antigravity, sys, abc
-import antigravity, sys, abc
 import typing
 import attrs
+import antigravity, sys, abc
+
 
 @attrs.define
 class MyClass:
@@ -13,7 +13,9 @@ def main():
     print("hello dangerous world")
 
     my_class = MyClass()
+    my_class2 = MyClass()
     my_list = typing.List()
+
 
 if __name__ == "__main__":
     main()
