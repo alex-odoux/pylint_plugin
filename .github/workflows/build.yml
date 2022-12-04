@@ -29,7 +29,8 @@ jobs:
 
       - name: Run pylint
         run: |
-          pipenv run pylint --output-format sonar-issues --output ./sonar-issues.json **/*.py
+	  pwd
+          pipenv run pylint --output-format sonar-issues --output ./sonar-issues.json main.py
 
       - name: Show found issues
         run: |
