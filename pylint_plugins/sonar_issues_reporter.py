@@ -9,7 +9,7 @@ from pylint.reporters.ureports.nodes import Section
 
 class SonarIssuesReporter(BaseReporter):
     __implements__ = IReporter
-    name = "sonarissues"
+    name = "sonar-issues"
     extension = "json"
 
     def __init__(self, *args, **kwargs):
@@ -20,8 +20,13 @@ class SonarIssuesReporter(BaseReporter):
         self._messages.append(msg)
 
     def display_messages(self, layout: Optional[Section]):
-        json_dumpable = [self._msg_to_sonar_dict(msg) for msg in self._messages]
-        print(json.dumps({"issues": json_dumpable}, indent=4), file=self.out)
+        print(
+            json.dumps(
+                {"issues": [self._msg_to_sonar_dict(msg) for msg in self._messages]},
+                indent=4,
+            ),
+            file=self.out,
+        )
 
     @staticmethod
     def _msg_to_sonar_dict(msg: Message):
