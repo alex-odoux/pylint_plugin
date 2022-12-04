@@ -1,5 +1,5 @@
 [MASTER]
-init-hook='import sys; sys.path.append("/home/ae/git/pylint_plugin/")'
+init-hook='import sys; sys.path.append(".")'
 load-plugins=pylint_plugins
 
 [MESSAGES CONTROL]
