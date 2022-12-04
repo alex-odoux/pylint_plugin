@@ -30,6 +30,7 @@ jobs:
       - name: Run pylint
         run: |
           pwd
+          ls -R
           pipenv run pylint --output-format sonar-issues --output ./sonar-issues.json main.py
 
       - name: Show found issues
