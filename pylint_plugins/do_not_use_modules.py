@@ -8,41 +8,41 @@ if TYPE_CHECKING:
     from pylint.lint import PyLinter
 
 
-class DeprecatedModulesChecker(BaseChecker):
+class DoNotUseModulesChecker(BaseChecker):
 
     __implements__ = IAstroidChecker
 
-    name = "deprecated-modules"
+    name = "do-not-use-modules"
     priority = -1
     msgs = {
         "W8801": (
-            "'%s' module is deprecated please use '%s' instead",
-            "deprecated-modules",
+            "'%s' module should not be used, please use '%s' instead",
+            "do-not-use-modules",
             "Refactor!",
         ),
     }
 
     # A pair of deprecated and target modules
-    deprecated_modules = {"antigravity": "progravity"}
+    do_not_use_modules = {"antigravity": "progravity"}
 
     def __init__(self, linter: Optional["PyLinter"] = None) -> None:
         super().__init__(linter)
 
     def visit_importfrom(self, node: nodes.ImportFrom) -> None:
         """Checks the from abc import def, ghi construct"""
-        if node.modname in self.deprecated_modules:
+        if node.modname in self.do_not_use_modules:
             self.add_message(
-                msgid="deprecated-modules",
+                msgid="do-not-use-modules",
                 node=node,
-                args=(node.modname, self.deprecated_modules[node.modname], )
+                args=(node.modname, self.do_not_use_modules[node.modname],)
             )
 
     def visit_import(self, node: nodes.Import) -> None:
         """Checks the import a,b,c construct"""
         for child_node in node.names:
-            if child_node[0] in self.deprecated_modules:
+            if child_node[0] in self.do_not_use_modules:
                 self.add_message(
-                    msgid="deprecated-modules",
+                    msgid="do-not-use-modules",
                     node=node,
-                    args=(child_node[0], self.deprecated_modules[child_node[0]], )
+                    args=(child_node[0], self.do_not_use_modules[child_node[0]],)
                 )

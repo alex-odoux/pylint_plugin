@@ -29,7 +29,13 @@ jobs:
 
       - name: Run pylint
         run: |
-          pipenv run pylint --output-format sonar-issues --output ./sonar-issues.json **/*.py
+          pwd
+          ls -R
+          pipenv run pylint --exit-zero --output-format sonar-issues --output ./sonar-issues.json main.py
+
+      - name: Show found issues
+        run: |
+          cat ./sonar-issues.json
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master

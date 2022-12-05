@@ -6,4 +6,6 @@ load-plugins=pylint_plugins
 # Disable all rules by default
 disable=W,E,C,R
 # Enable only custom rules
-enable=W8801,W8802
+enable=W8800,W8801
+#,W4901,W4902,W4903,W4904,W4905
+
