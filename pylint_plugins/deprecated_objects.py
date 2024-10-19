@@ -63,4 +63,4 @@ class DeprecatedObjectsChecker(BaseChecker):
                     )
 
 def register(linter):
-    linter.register_checker(DeprecatedChecker(linter))
+    linter.register_checker(DeprecatedObjectsChecker(linter))
